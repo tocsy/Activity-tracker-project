@@ -4,6 +4,9 @@ public class ActivityWithoutTrack implements Activity {
     private ActivityType activityType;
 
     public ActivityWithoutTrack(ActivityType activityType) {
+        if(activityType == null) {
+            throw new IllegalArgumentException();
+        }
         this.activityType = activityType;
     }
 

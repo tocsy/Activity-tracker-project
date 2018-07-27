@@ -4,9 +4,12 @@ public class ActivityWithTrack implements Activity {
     private ActivityType activityType;
     private Track track;
 
-    public ActivityWithTrack(ActivityType activityType, Track track) {
-        this.activityType = activityType;
+    public ActivityWithTrack(Track track, ActivityType activityType) {
+        if(track == null || activityType == null) {
+            throw new IllegalArgumentException();
+        }
         this.track = track;
+        this.activityType = activityType;
     }
 
     @Override
