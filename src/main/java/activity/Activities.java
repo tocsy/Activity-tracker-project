@@ -1,6 +1,7 @@
 package activity;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Activities {
@@ -20,11 +21,12 @@ public class Activities {
         activities.add(activity);
     }
 
-    public List<Report> distancesByType() {
-        List<Report> reports = new ArrayList<>();
+    public List<Report> distancesByTypes() {
+        List<Report> reports = new LinkedList<>();
         double bikingSum = 0;
         double hikingSum = 0;
         double runningSum = 0;
+        double basketballSum = 0;
 
         for (Activity a : activities) {
             switch (a.getType()) {
@@ -38,19 +40,19 @@ public class Activities {
                     runningSum += a.getDistance();
                     break;
                 case BASKETBALL:
-                    a.getDistance();
+                    basketballSum += a.getDistance();
                     break;
             }
         }
+        Report basketball = new Report(ActivityType.BASKETBALL, basketballSum);
         Report biking = new Report(ActivityType.BIKING, bikingSum);
         Report hiking = new Report(ActivityType.HIKING, hikingSum);
         Report running= new Report(ActivityType.RUNNING, runningSum);
-        Report basketball = new Report(ActivityType.BASKETBALL, 0);
 
+        reports.add(basketball);
         reports.add(biking);
         reports.add(hiking);
         reports.add(running);
-        reports.add(basketball);
 
         return reports;
     }

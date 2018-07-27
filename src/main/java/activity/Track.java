@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Track {
 
-    List<TrackPoint> trackPoints = new ArrayList();
+    private List<TrackPoint> trackPoints = new ArrayList();
 
     public void addTrackPoint(TrackPoint tp) {
         trackPoints.add(tp);
@@ -50,7 +50,7 @@ public class Track {
 
     public double getFullDecrease() {
         double sum = 0.0;
-        for (int i = 0; i < trackPoints.size(); i++) {
+        for (int i = 0; i < trackPoints.size()-1; i++) {
             if (trackPoints.get(i).getElevation() > trackPoints.get(i + 1).getElevation()) {
                 sum += (trackPoints.get(i).getElevation() - trackPoints.get(i + 1).getElevation());
             }
@@ -60,7 +60,7 @@ public class Track {
 
     public double getFullElevation() {
         double sum = 0.0;
-        for (int i = 0; i < trackPoints.size(); i++) {
+        for (int i = 0; i < trackPoints.size()-1; i++) {
             if (trackPoints.get(i).getElevation() < trackPoints.get(i + 1).getElevation()) {
                 sum += (trackPoints.get(i + 1).getElevation() - trackPoints.get(i).getElevation());
             }
@@ -74,7 +74,7 @@ public class Track {
         return a * b;
     }
 
-    public List getTrackPoints() {
+    public List<TrackPoint> getTrackPoints() {
         return trackPoints;
     }
 }

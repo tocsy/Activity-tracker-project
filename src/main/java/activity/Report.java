@@ -9,9 +9,6 @@ public class Report {
         if (activityType == null) {
             throw new IllegalArgumentException("Parameter should not be null");
         }
-        if (distance <= 0) {
-            throw new IllegalArgumentException("Distance should be greater then or equal to zero.");
-        }
         this.activityType = activityType;
         this.distance = distance;
     }
