@@ -8,6 +8,10 @@ public class Track {
 
     List<> trackPoints = new ArrayList();
 
+    public List getTrackPoints() {
+        return trackPoints;
+    }
+
     public void addTrackPoint(){}
 
     public Coordinate findMaximumCoordinate(){}
